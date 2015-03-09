@@ -1,35 +1,48 @@
 require 'sinatra'
 
+require 'active_record'
+
+ActiveRecord::Base.establish_connection(
+	"adapter" => "sqlite3",
+	"database" => "./aaa.db"
+	)
+
+
+	class Comment < ActiveRecord::Base
+	end
+
 get '/' do 
+	@comments = Comment.order("id desc").all
 	erb :index
 end
 
 post '/' do 
-	@name = params[:name]
+
 	erb :index
 end
 
 get '/area' do 
-	erb :index
+	erb :area
 end
 
 get '/menu' do 
-	erb :index
+	erb :menu
 end
 
 get '/login' do 
-	erb :index
+	erb :login
 end
 
+
 post '/form' do 
-	erb :index
+	erb :form
 end
 
 post '/toko' do 
-	erb :index
+	erb :toko
 end
 
 get '/syosai' do 
-	erb :index
+	erb :syosai
 end
 
