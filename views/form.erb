@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+<title>HOME_店舗様</title>
+<meta charset="utf-8">
+
+</head>
+<body>
+
+	<h1>お店の方用のページです</h1>
+	
+
+	<b>お店情報の入力</b><br><br><br>
+	
+　
+
+　<form action="/form" method="post">
+
+
+	<!-- 店舗名 -->
+	<b>店舗名</b><br>
+	<input type="text" name="name"><br>
+
+	<!-- 場所 -->
+	<b>場所</b><br>
+	<input type="text" name="place"><br>
+
+	<!-- カテゴリー -->
+	<b>メニュー</b><br>
+	<select　name="menu">
+		<option value="焼肉">焼きにく</option><br>
+	</select>
+
+	<!-- 座席の数 -->
+	<b>座席数</b><br>
+	<!-- ここはjsかなにかで -->
+
+	<!-- 一言コメント！ -->
+	<b>お店のPR</b><br>
+	<textarea cols="40" rows="5" name="detail"></textarea><br>
+	<!-- 残り何文字かわかるように -->
+  <input type="submit" value="登録する">
+
+</form>
+
+
+
+
+</body>
+</html>

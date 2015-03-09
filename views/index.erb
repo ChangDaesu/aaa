@@ -11,8 +11,22 @@
 
 <body>
 
-	<h1>hello world</h1>
+
+
+	<h1>へろー</h1>
 	
+	<% @comment.each do |comment| %>
+	<li data-id="<%= comment.id %>">
+		<%= comment.body %>
+	</li>
+	<%end%>
+
+	<h2>Add new</h2>
+	<form action="/new" method="post">
+		<input type="text" name="body">
+		<input type="submit" value="入力">
+
+	</form>
 </body>
 
 </html>
