@@ -1,48 +1,29 @@
 require 'sinatra'
-
+require "sinatra/reloader" if development?
 require 'active_record'
 
 ActiveRecord::Base.establish_connection(
 	"adapter" => "sqlite3",
-	"database" => "./aaa.db"
-	)
+	"database" => "./aaa.sqlite3"
+)
 
+class User < ActiveRecord::Base
+	has_many :tables, dependent: :destroy
+end
 
-	class Comment < ActiveRecord::Base
-	end
+class Table < ActiveRecord::Base
+	belongs_to :user
+end
 
 get '/' do 
-	@comments = Comment.order("id desc").all
+	@users = User.order("id desc").all
 	erb :index
 end
 
-post '/' do 
 
-	erb :index
+post '/new' do
+	 @users = User.create({:name => params[:name]})
+	redirect '/'
 end
 
-get '/area' do 
-	erb :area
-end
-
-get '/menu' do 
-	erb :menu
-end
-
-get '/login' do 
-	erb :login
-end
-
-
-post '/form' do 
-	erb :form
-end
-
-post '/toko' do 
-	erb :toko
-end
-
-get '/syosai' do 
-	erb :syosai
-end
 
