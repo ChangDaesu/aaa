@@ -17,13 +17,13 @@
 	<ul>
 	<% @user.each do |user| %>
 	<li data-id="<%= user.id %>">
-		<%= user.body %>
+		<%= user.name %>
 	</li>
 	<%end%>
 
 	<h2>Add new</h2>
 	<form action="/new" method="post">
-		<input type="text" name="body">
+		<input type="text" name="name">
 		<input type="submit" value="入力">
 
 	
