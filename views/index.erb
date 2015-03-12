@@ -15,9 +15,21 @@
 
 	<h1>へろー</h1>
 	<ul>
-	<% @user.each do |user| %>
-	<li data-id="<%= user.id %>">
+	<% @user.each do |name| %>
+	<li >
 		<%= user.name %>
+	</li>
+	<li >
+		<%= user.location %>
+	</li>
+	<li >
+		<%= user.station %>
+	</li>
+	<li >
+		<%= user.map_url %>
+	</li>
+	<li >
+		<%= user.comment %>
 	</li>
 	<%end%>
 
