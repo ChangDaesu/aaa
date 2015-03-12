@@ -16,12 +16,14 @@ end
 #end
 
 
-# お客さんの投稿閲覧画面
+# お客さんの投稿閲覧画面：最新の投稿が見れる
 
 get '/' do 
 	@users = User.order("id desc").all
 	erb :index
 end
+
+#お客さんが投稿を「場所」で検索する画面：上にフォーム＆下に検索結果も表示させる
 
 
 post '/new' do
@@ -49,41 +51,19 @@ end
 
 post '/form' do
 	
-	User.create({:name => params[:name]},
-				{:location => params[:location]},
-				{:station => params[:station]},
-				{:map_url => params[:map_url]},
-				{:menu => params[:menu]},
-				{:comment => params[:comment]})
+	User.create(:name => params[:name],
+				:location => params[:location],
+				:station => params[:station],
+				:map_url => params[:map_url],
+				:menu => params[:menu],
+				:comment => params[:comment])
 
 	p User.all
 	redirect '/store'
-	
+
 end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# お店の情報を検索する
-
-
-get '/kensaku' do
-
-	erb :kensaku
-end
 
 
 
