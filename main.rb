@@ -49,3 +49,18 @@ post '/form' do
 p User.all
 	redirect '/store'
 end
+
+
+# お店の情報を検索する
+
+
+get '/kensaku' do
+
+	erb :kensaku
+end
+
+
+
+
+
+
