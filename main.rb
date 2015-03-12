@@ -16,20 +16,26 @@ end
 #end
 
 
-# お客さんの投稿閲覧画面：最新の投稿が見れる
+
+
+
+
+
+
+
+# お客さんの投稿閲覧 & 検索画面
 
 get '/' do 
-	@users = User.order("id desc").all
+	
 	erb :index
+
+	@users = User.all
+
 end
 
-#お客さんが投稿を「場所」で検索する画面：上にフォーム＆下に検索結果も表示させる
 
 
-post '/new' do
-	 @users = User.create({:name => params[:name]})
-	redirect '/'
-end
+
 
 
 

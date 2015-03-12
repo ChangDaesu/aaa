@@ -11,35 +11,16 @@
 
 <body>
 
+<h1>ぺごぱ</h1>
 
-
-	<h1>へろー</h1>
 	<ul>
-	<% @user.each do |name| %>
-	<li >
-		<%= user.name %>
-	</li>
-	<li >
-		<%= user.location %>
-	</li>
-	<li >
-		<%= user.station %>
-	</li>
-	<li >
-		<%= user.map_url %>
-	</li>
-	<li >
-		<%= user.comment %>
-	</li>
-	<%end%>
+		<% @users.each do |users|%>
+		<li>
+			<%= user.name%>
+		</li>
+	</ul>
 
-	<h2>Add new</h2>
-	<form action="/new" method="post">
-		<input type="text" name="name">
-		<input type="submit" value="入力">
-
-	
-	</form>
+	<% end %>
 
 </body>
 
