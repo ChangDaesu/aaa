@@ -13,12 +13,46 @@
 
 <h1>ぺごぱ</h1>
 
-	<ul>
-		<% @users.each do |users|%>
-		<li>
+		<% @users.each do |user|%>
+		
+		<table>
+			
+
+			<tbody>
+		
+			<td>
 			<%= user.name%>
-		</li>
-	</ul>
+		    </td>
+		        
+		       
+		<td>
+			<%= user.location%>
+		</td>
+			
+		
+		<td>
+			
+		<%= user.station%>
+			</td>
+		
+		
+			<td>
+			
+		<%= user.map_url%>
+			</td>
+		
+		
+			<td>
+			<%= user.open%>
+		</td>
+	
+		
+		<td>
+			<%= user.comment%>
+		</td>
+	
+		
+	</tbody>
 
 	<% end %>
 

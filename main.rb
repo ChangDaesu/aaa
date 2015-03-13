@@ -27,15 +27,13 @@ end
 
 get '/' do 
 	
+	@users = User.order("created_at　desc").limit(5)
 	erb :index
-
-	@users = User.all
-
 end
 
 
 
-
+	
 
 
 
@@ -62,7 +60,8 @@ post '/form' do
 				:station => params[:station],
 				:map_url => params[:map_url],
 				:menu => params[:menu],
-				:comment => params[:comment])
+				:comment => params[:comment],
+				:open => params[:open])
 
 	p User.all
 	redirect '/store'
