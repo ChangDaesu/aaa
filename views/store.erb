@@ -14,9 +14,7 @@
 
 	<b>お店の空き情報の入力</b><br><br><br>
 	
-　
-
-　<form action="/form" method="post">
+<form action="/form" method="post" enctype="multipart/form-data">
 
 
 	<!-- 店舗名 -->
@@ -41,6 +39,10 @@
 
 	<b>電話番号(半角・ハイフンなし)</b><br>
 	<input type="text" name="open"><br>
+
+	<!-- image -->
+	<input type="file" name="file">
+
 
 	
 

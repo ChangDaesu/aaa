@@ -2,6 +2,8 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'active_record'
 
+set :public, File.dirname(__FILE__) + '/public'
+
 ActiveRecord::Base.establish_connection(
 	"adapter" => "sqlite3",
 	"database" => "./aaa.sqlite3"
@@ -27,9 +29,20 @@ end
 
 get '/' do 
 	
-	@users = User.order("created_at　desc").limit(5)
+	@users = User.order("created_at DESC").limit(5)
 	erb :index
 end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -49,6 +62,16 @@ end
 
 
 post '/form' do
+
+	save_path = "./public/images/#{params[:file][:filename]}"
+
+	 File.open(save_path,'wb') do |f|
+	 	p params[:file][:tempfile]
+	 	f.write params [:file][:tempfile].read
+
+	 end
+
+
 	
 	User.create(:name => params[:name],
 				:location => params[:location],
@@ -56,7 +79,9 @@ post '/form' do
 				:map_url => params[:map_url],
 				:menu => params[:menu],
 				:comment => params[:comment],
-				:open => params[:open])
+				:open => params[:open],
+				:images => "/images/#{params[:file][:filename]}"
+				)
 
 	p User.all
 	redirect '/store'
