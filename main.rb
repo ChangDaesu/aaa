@@ -82,22 +82,18 @@ end
 
 #場所で検索 
 
+
+get '/result' do
+  erb :result
+	end
+
 post '/search' do
 
 	@place = params[:location]
-	redirect '/result'
-end
+	@result =p User.where("location like ?" , "%#{@place}%").order("created_at DESC").limit(6)
 
-
-get '/result' do
-
-	@result =p User.find_by_location("@place")
-	
-　　erb :result
+	erb :result
 	end
-
-
-
 
 
 
