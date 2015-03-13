@@ -21,10 +21,6 @@ end
 
 
 
-
-
-
-
 # お客さんの投稿閲覧 & 検索画面
 
 get '/' do 
@@ -37,18 +33,6 @@ get '/' do
 	@users = User.order("created_at DESC").limit(6)
 	erb :index
 end
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -96,19 +80,21 @@ end
 
 
 
-# # アップロードした画像の表示
-# get '/images' do
-# 	images_name = Dir.glob("public/images/*")
-# 	@images_path = []
+#場所で検索 
+
+post '/search' do
+
+	@place = params[:location]
+	redirect '/result'
+end
+
+
+get '/result' do
+
+	@result =p User.find_by_location("@place")
 	
-# 	images_name.each do |image|
-# 		@images_path << image.gsub("public/", "./")
-# 	end
-# 	haml :images
-# end
-
-
-
+　　erb :result
+	end
 
 
 
