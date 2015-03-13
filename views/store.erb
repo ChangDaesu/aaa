@@ -3,8 +3,35 @@
 <html lang="ja">
 
 <head>
-<title>HOME_店舗様</title>
+<title>ぺごぱ＿店舗様</title>
 <meta charset="utf-8">
+
+<style>
+
+h1{
+	font-size:30px;
+}
+
+body {
+  /* 画像ファイルの指定 */
+  background-image: url(http://image.rakuten.co.jp/manekineko-orner/cabinet/01485700/img56536146.jpg);
+   
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+   
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+   
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+   
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+   
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+}
+</style>
 
 </head>
 <body>
@@ -12,36 +39,37 @@
 	<h1>お店の方用のページです</h1>
 	
 
-	<b>お店の空き情報の入力</b><br><br><br>
+	<b>お店の情報を入力して集客しましょう！！</b><br><br><br>
 	
 <form action="/form" method="post" enctype="multipart/form-data">
 
 
 	<!-- 店舗名 -->
-	<b>店舗名</b><br>
-	<input type="text" name="name"><br>
+	<b>店舗名 :</b><br>
+	<textarea cols="40" rows="1" name="name"　placeholder="だんだん　米子駅前店"></textarea><br>
 
 	<!-- 場所 -->
 
-	<b>場所</b><br>
-	<input type="text" name="location"><br>
+	<b>場所 :</b><br>
+	<textarea cols="40" rows="1" name="location"　placeholder="鳥取県米子市"></textarea><br>
 
 	<!-- 最寄り -->
-	<b>最寄駅</b><br>
-	<input type="text" name="station"><br>
+	<b>最寄駅 :</b><br>
+	<textarea cols="40" rows="1" name="station"　placeholder="JR米子駅から徒歩３分"></textarea><br>
 
 	<!-- 場所url -->
 
-	<b>google map</b><br>
-	<input type="text" name="map_url"><br>
+	<b>google map　URL : </b><br>
+	<textarea cols="40" rows="1" name="map_url"　placeholder="google mapのURLをコピーして貼り付けてください"></textarea><br>
 
 	<!-- 電話番号 -->
 
-	<b>電話番号(半角・ハイフンなし)</b><br>
-	<input type="text" name="open"><br>
+	<b>電話番号(半角・ハイフンなし) :</b><br>
+	<textarea cols="40" rows="1" name="menu"　placeholder="080xxxxyyyy"></textarea><br>
 
 	<!-- image -->
-	<input type="file" name="file">
+	<b>写真 : </b>
+	<input type="file" name="file"><br><br>
 
 
 	
@@ -50,8 +78,8 @@
 	<!-- ここはjsかなにかで -->
 
 	<!-- 一言コメント！ -->
-	<b>お店のPR</b><br>
-	<textarea cols="40" rows="5" name="comment"></textarea><br>
+	<b>＊集客メッセージ＊</b><br>
+	<textarea cols="40" rows="5" name="comment" placeholder="３人席と４人席が空いてます！ぺごぱを見て予約を下さったお客様はドリンク１杯無料！！"></textarea><br>
 	<!-- 残り何文字かわかるように -->
   <input type="submit" value="登録する">
 

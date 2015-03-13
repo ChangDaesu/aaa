@@ -1,65 +1,164 @@
 <!DOCTYPE html>
-
-<html lang="ja">
-
+<html>
 <head>
 
-<title>HOME</title>
-<meta charset="utf-8">
+	<!-- Page Setting
+		================================================== -->
+	<meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<meta charset="utf-8">
+	<title>ぺごぱ</title>
+
+	<!-- Viewport
+		================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+		================================================== -->
+	<link rel="stylesheet" href="css/setting.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+<style >
+	#center02 {
+
+  position:relative; /* 絶対配置の基準点 */
+
+  width:100%; /* 600px以下は幅いっぱいに広げる */
+
+  max-width:600px; /* 最大幅の指定 */
+
+  height:100px; /* 高さの指定 */
+
+  margin:0 auto; /* ブロック要素の中央揃え */
+
+  text-align:center; /* インライン要素の中央揃え */
+
+  background:#fff; /* 背景色 */
+
+}
+
+#center02 .inner {
+
+ position:absolute; /* 絶対配置 */
+
+ top:50%; /* 上から半分 */
+
+ left:50%; /* 左から半分 */
+
+ width:100%; /* 大枠と同じ幅に */
+
+ margin:-1.5em 0 0 -50%; /* 要素の大きさの半分引く */
+
+}
+
+b{
+	font-size:30px;
+}
+
+h3{
+	font-size:30px;
+}
+
+#center01 {
+
+    text-align:center;
+
+}
+
+</style>	
 
 </head>
-
 <body>
+<div class="container">
+<!-- ヘッダー部分 -->
+	<header class="mainHeader">
+		<div class="inner">
+			<div class="row">
+			<h1 class="logo"><a href="index.html">
+			<!-- サイト名を入力
+				================================================== -->
+				ぺごぱ
+			</a></h1>
+			<nav class="mainNav">
+			<!-- メニュー
+				================================================== -->
+				<ul>
+					<li><a href="localhost:9292/store">お店の方はこちら</a></li>
+					
+				</ul>
+			</nav>
+			</div>
+		</div>
+		<!-- 画像上テキスト -->
+		<div class="text row"><div id="center01">
+			<h2>空いてるお店をおトクに予約</h2>
+			
+		</div></div>
 
-<h1>ぺごぱ</h1>
+		<ul class="bxslider">
+		<!-- スライド画像
+			================================================== -->
+			<li>
+				<!--1枚目の画像-->
+				<img src="http://blog-imgs-49.fc2.com/e/m/o/emotampiv/b03c02be.jpg" height="480" width="700" alt="">
+			</li>
+			<li>
+				<!--2枚目の画像をここから入れるよ！-->
 
+			</li>
+			<li>
+				<!--3枚目の画像をここから入れるよ！-->
+
+			</li>
+		</ul>
+	</header>
+
+<div id="center02"><div class="inner">
+
+	<b>最新のおトク情報！！</b>
+	
+</div></div>
+	<!-- メイン部分 -->
+	
+
+	<div class="content row">
 		<% @users.each do |user|%>
-		
-		<table>
-			
 
-			<tbody>
-		
-			<td>
-			<%= user.name%>
-		    </td>
-		        
-		       
-		<td>
-			<%= user.location%>
-		</td>
+		<div class="list grid-4">
 			
-		
-		<td>
+			<img src="<%= user.images%>">
 			
-		<%= user.station%>
-			</td>
-		
-		
-			<td>
+			<h3><%= user.name%></h3>
 			
-		<%= user.map_url%>
-			</td>
-		
-		
-			<td>
-			<%= user.open%>
-		</td>
-	
-		
-		<td>
-			<%= user.comment%>
-		</td>
-	
-	<td>
-			<img src="<%= user.images %>">
-		</td>
-		
-	</tbody>
+			<p>投稿時間 : <%= user.created_at%></p>
+			<p>場所：<%= user.location%></p>
+			<p>最寄り：<%= user.station%></p>
+			<p>google map URL : <%= user.map_url%></p>
+			<p>電話番号:<%= user.menu%></p>
+			<p>一言コメント:<br><%= user.comment%></p>
+			
+		</div>
+		<% end %>
+	</div>
 
-	<% end %>
+
+	<div class="black">
+	<div class="content row">
+		<!-- サブコンテンツタイトル
+			================================================== -->
+		
+	</div>
+	</div>
+	<foter class="mainFooter" class="clearfix">
+		<p>2015 <a href="http://life-is-tech.com/" target="_blank">webコース　はりー</a></p>
+	</foter>
+</div>
+<!-- スライダー -->
+<script src="js/jquery-1.11.0.min.js"></script>
+<!-- ここにスライダーを追加 -->
 
 </body>
-
 </html>
 

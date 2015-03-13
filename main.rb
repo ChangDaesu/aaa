@@ -28,8 +28,13 @@ end
 # お客さんの投稿閲覧 & 検索画面
 
 get '/' do 
+	images_name = Dir.glob("public/images/*")
+	@images_path = []
 	
-	@users = User.order("created_at DESC").limit(5)
+	images_name.each do |image|
+		@images_path << image.gsub("public/", "./")
+	end
+	@users = User.order("created_at DESC").limit(6)
 	erb :index
 end
 
@@ -63,11 +68,12 @@ end
 
 post '/form' do
 
+	
 	save_path = "./public/images/#{params[:file][:filename]}"
-
-	 File.open(save_path,'wb') do |f|
-	 	p params[:file][:tempfile]
-	 	f.write params [:file][:tempfile].read
+ 
+		File.open(save_path, 'wb') do |f|
+			p params[:file][:tempfile]
+			f.write params[:file][:tempfile].read
 
 	 end
 
@@ -87,6 +93,21 @@ post '/form' do
 	redirect '/store'
 
 end
+
+
+
+# # アップロードした画像の表示
+# get '/images' do
+# 	images_name = Dir.glob("public/images/*")
+# 	@images_path = []
+	
+# 	images_name.each do |image|
+# 		@images_path << image.gsub("public/", "./")
+# 	end
+# 	haml :images
+# end
+
+
 
 
 
