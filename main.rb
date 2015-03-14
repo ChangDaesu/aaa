@@ -80,6 +80,10 @@ end
 
 
 
+
+
+
+
 #場所で検索 
 
 
@@ -92,7 +96,7 @@ post '/search' do
 	@place = params[:location]
 	@result =p User.where("location LIKE ?" , "#{@place}").order("created_at DESC").limit(6)
 	 erb :result
-	 
+
 	end
 
 
