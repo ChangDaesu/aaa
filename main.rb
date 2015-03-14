@@ -88,11 +88,11 @@ get '/result' do
 	end
 
 post '/search' do
-
+ 	
 	@place = params[:location]
-	@result =p User.where("location like ?" , "%#{@place}%").order("created_at DESC").limit(6)
-
-	erb :result
+	@result =p User.where("location LIKE ?" , "#{@place}").order("created_at DESC").limit(6)
+	 erb :result
+	 
 	end
 
 

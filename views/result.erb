@@ -126,19 +126,26 @@ h3{
 
 	</form>	
 
-	<b>検索結果ーー<!--検索場所を表示 --></b>
 	
 </div></div>
 	<!-- メイン部分 -->
 	
 
 	<div class="content row">
-		<% @result.each do |result|%>
+
+<% if @result != nil%>
+
+<div id="center01">
+<b>検索結果　＊<%= @place%>＊</b>
+</div><br><br>
+
+		<%@result.each do |user|%>
 
 		<div class="list grid-4">
 			
 			<img src="<%= user.images%>">
 			
+
 			<h3><%= user.name%></h3>
 			
 			<p>投稿時間 : <%= user.created_at%></p>
@@ -150,8 +157,15 @@ h3{
 			
 		</div>
 		<% end %>
-	</div>
+		<% else %>
+		<div id="center01">
+			<b>場所を記入してください！</b>
+		</div>
+		<% end %>
+ 	</div>
+ 
 
+ 		
 
 	<div class="black">
 	<div class="content row">
