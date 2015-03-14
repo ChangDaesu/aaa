@@ -16,7 +16,7 @@
 		================================================== -->
 	<link rel="stylesheet" href="css/setting.css">
 	<link rel="stylesheet" href="css/style.css">
-
+	<link rel="stylesheet" href="css/style4.css">
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<![endif]-->
@@ -76,7 +76,7 @@ h3{
 	<header class="mainHeader">
 		<div class="inner">
 			<div class="row">
-			<h1 class="logo"><a href="index.html">
+			<h1 class="logo"><a href="/">
 			<!-- サイト名を入力
 				================================================== -->
 				ぺごぱ
@@ -85,8 +85,9 @@ h3{
 			<!-- メニュー
 				================================================== -->
 				<ul>
-					<li><a href="localhost:9292/store">お店の方はこちら</a></li>
-					<li><a href="localhost:9292/search">検索する</a></li>
+					<li><a href="/">HOMEへ</a></li>
+					<li><a href="/store">お店の方はこちら</a></li>
+					
 					
 				</ul>
 			</nav>
@@ -94,9 +95,13 @@ h3{
 		</div>
 		<!-- 画像上テキスト -->
 		<div class="text row"><div id="center01">
-			<h2>空いてるお店をおトクに予約</h2>
+			<h2>空いてるお店をおトクに予約!!</h2>
 			
-		</div></div>
+		</div>
+		<div id="center_button">
+			<a class="a_demo_four" href="/">HOMEに戻る</a>
+			</div>
+	</div>
 
 		<ul class="bxslider">
 		<!-- スライド画像
@@ -120,7 +125,7 @@ h3{
 
 	<form action="/search" method="post" >
 
-		<input type="text" name="location">
+		<input type="text" name="location"　 placeholder="米子市">
 
 		<input type="submit" value="検索！">
 
@@ -133,7 +138,7 @@ h3{
 
 	<div class="content row">
 
-<% if @result != nil%>
+<% if @place != nil%>
 
 <div id="center01">
 <b>検索結果　＊<%= @place%>＊</b>
@@ -157,8 +162,11 @@ h3{
 			
 		</div>
 		<% end %>
+
+
 		<% else %>
 		<div id="center01">
+			<p>　　　　↑↑↑　　　　　　</p>
 			<b>場所を記入してください！</b>
 		</div>
 		<% end %>
